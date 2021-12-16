@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ja"><head> 
+  <meta charset="UTF-8">
+  <title>ICT CAMP</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@ninjacodeee">
+  <meta property="og:url" content="https://ninjacode.work/">
+  <meta property="og:title" content="ICT CAMP | 未来を掴むためのスキルトレーニング">
+  <meta property="og:image" content="https://ninjacode.work/assets/img/logo.png">
+  <link rel="icon" href="assets/img/top/sitelogo.png">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css">
+ 
+  <style>
+    *{margin: 0;padding: 0;list-style: none;box-sizing: border-box;}
+    body{
+      font-family: Lato,sans-serif;
+      color: #333;font-size: 20px;
+    }
+    img{width: 100%;}
+    a:hover{opacity: 0.7;}
+    .sidebar{
+      position: fixed;
+      width: 14%;
+      padding: 30px 0;
+      height: 100vh;
+      left: 0;
+      top: 0;
+      background-color: #1e1f27;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    }
+    .site-name{
+      width: 70%;
+      margin: 0 auto;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .site-icon{
+      width: 50%;
+      margin: 0 auto;
+    }
+    .pc-social{
+      position: absolute;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 10;
+    }
+    .pc-social li{
+      width: 50px;
+    }
+    .catch{
+      position: absolute;
+      top:50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      letter-spacing: 5px;
+      color: #fff;
+      font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+      font-weight: normal;
+      font-size: 3vh;
+      text-align: center;
+      max-width: 2em;
+    }
+    .catch span{
+      writing-mode: vertical-rl; 
+    }
+    .main{
+      margin-left: 14%;
+      background: url(assets/img/top/camp.png) no-repeat;
+      /*background-color: #131418;*/
+      background-size: cover;
+      min-height: 100vh;
+      padding-top: 5%;
+    }
+    .title{
+      text-align: center;
+      color: #1e1f27;
+      margin-bottom: 40px;
+    }
+    .enter-list{
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      margin: 0 2%;
+      opacity: 0;
+      animation: fadeIn 1s linear 1s 1 forwards;
+    }
+    .enter{
+      position: relative;
+      display: block;
+      background: #1d1e22;
+      box-shadow: 0 2px 5px rgba(0,0,0,.5);
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 5px;
+    }
+    /*.enter:after{
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      content: "";
+      background: url(assets/img/top/haguruma.png) no-repeat;
+      background-size: cover;
+      width: 25px;
+      height: 25px;
+    }*/
+    .enter:hover:after{
+      animation: spin 2s linear infinite;
+    }
+    .enter h2{
+      font-size: 2.2rem;
+    }
+    .enter .totla{
+      margin-top: 10px;
+    }
+    .enter-inner{
+      padding: 70px 20px;
+    }
+    .enter-cap{
+      margin: 20px auto;
+    }
+    .enter-cap img{
+      width: 100%;
+    }
+    .enter-new{
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #ef4646;
+      color: #fff;
+      padding: 4px 10px 5px 10px;
+      border-radius: 5px;
+    }
+    .total{
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      font-size: 1.4rem;
+    }
+    .banner{
+      width: 60%;
+      margin: 40px auto;
+    }
+    .banner--col2{
+      width: 90%;
+      margin: 40px auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    .banner--col2 a{
+      width: 49%;
+    }
+    .btn{
+      display: block;
+      text-decoration: none;
+      background-color: #ec6a01;
+      color: #fff;
+      width: 50%;
+      margin: 0 auto;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    .btn--soon{
+      cursor: default;
+      pointer-events: none;
+      background-color: gray;
+    }
+    @keyframes spin {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes fadeIn {
+      100% { opacity: 1; }
+    }
+
+    .sp-on{display: none;}
+    .pc-on{display: block;}
+
+    @media screen and (max-width: 769px){
+      .sp-on{display: block;}
+      .pc-on{display: none;}      
+      .sidebar{
+        padding-top: 20px;
+        position: relative;
+        width: auto;
+        background: url(assets/img/top/sp_bg.jpg) no-repeat;
+        background-size: cover;
+      }
+      .sidebar:after{
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        position: absolute;
+        top: 0;
+      }
+      .site-name{
+        width: 50%;
+        position: relative;
+        z-index: 10;
+      }
+      .catch{
+        position: relative;
+        z-index: 10;
+        font-size: 4.2vh;
+        top: 40%;
+      }
+      .title{
+        font-size: 1.3rem;
+      }
+      .site-icon{
+        display: none;
+      }
+      .sp-social li{
+        width: 50px;
+        margin: 0 auto;
+      }
+      .main{
+        height: auto;
+        margin-left: 0;
+        padding-bottom: 100px;
+        background-image: none;
+        background-color: #131418;
+      }
+      .sp-logo{
+        width: 40%;
+        margin: 40px auto 30px auto;
+      }
+      .enter-list{
+        display: block;
+      }
+      .enter{
+        margin-bottom: 30px;
+      }
+      .enter-inner{
+        padding: 50px 20px;
+      }
+      .enter h2{
+        font-size: 1.8rem;
+      }
+      .total{
+        font-size: 1rem;
+      }
+      .banner{
+        opacity: 0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        transition: all 1s;
+      }
+      .banner--col2{
+        display: block;
+      }
+      .banner.is-fade{
+        opacity: 1;
+      }
+      .yoroi-banner{
+        display: none;
+      }
+    }
+
+  </style>
+  <meta name="google-site-verification" content="gGxUksDyEJJ1sEIguRVCbzsOA1OLKXJ-ITubO3lD2Jo">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <h1 class="site-name sp-on"><img src="assets/img/top/sitename.png" alt=""></h1>
+    <div class="site-icon pc-on"><img src="assets/img/top/logo.png" alt=""></div>
+    <div class="catch">
+      <ul class="catch-slide slick-initialized slick-slider">
+        <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 36px; transform: translate3d(0px, 0px, 0px);"><li class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="0" style="width: 36px;"><span>未来を掴むためのスキルトレーニング</span></li></div></div>
+      </ul>
+    </div>
+    <ul class="pc-social pc-on">
+      <li><a href="https://twitter.com/ninjacodeee"><img src="assets/img/top/twitter.png" alt=""></a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+    <section class="enter-list">
+      <div class="enter">
+        <div class="total">全問</div>
+        <div class="enter-inner">
+          <h2>Java</h2>
+          <div class="enter-cap"><img src="assets/img/top/1.png" alt=""></div>
+          <a href="" class="btn">問題を解く</a>
+        </div>
+      </div>
+      <div class="enter">
+        <div class="enter-inner">
+          <h2>JavaScript</h2>
+          <div class="total">全問</div>
+          <div class="enter-cap"><img src="assets/img/top/2.png" alt=""></div>
+          <a href="" class="btn">問題を解く</a>
+        </div>
+      </div>
+      <div class="enter">
+        <div class="enter-inner">
+          <h2>模写コーディング</h2>
+          <div class="enter-cap"><img src="assets/img/top/6.png" alt=""></div>
+          <a href="" class="btn">詳細を見る</a>
+        </div>
+      </div>
+      <div class="enter">
+                <div class="enter-inner">
+          <h2>Swift</h2>
+          <div class="total">全問</div>
+          <div class="enter-cap"><img src="assets/img/top/3.png" alt=""></div>
+          <a href="" class="btn">問題を解く</a>
+        </div>
+      </div>
+      <div class="enter">
+        <div class="enter-inner">
+          <h2>Python</h2>
+          <div class="total">全問</div>
+          <div class="enter-cap"><img src="assets/img/top/4.png" alt=""></div>
+          <a href="" class="btn">問題を解く</a>
+        </div>
+      </div>
+      <div class="enter">
+        <div class="enter-inner">
+          <h2>Git</h2>
+          <div class="totla"></div>
+          <div class="enter-cap"><img src="assets/img/top/5.png" alt=""></div>
+          <a href="" class="btn btn--soon">工事中</a>
+        </div>
+      </div>
+    </section>
+    <div class="sp-logo sp-on"><img src="assets/img/top/logo.png" alt=""></div>
+    <ul class="sp-social sp-on">
+      <li><a href="https://twitter.com/ninjacodeee"><img src="assets/img/top/twitter.png" alt=""></a></li>
+    </ul>
+    <div class="banner banner--col2">
+      <a href="https://ninjacode.work/yashiki_lp/" class="yashiki-banner"><img src="assets/img/top/yashiki_banner.png" alt=""></a>
+      <a href="https://ninjacode.work/yoroi_lp/" class="yoroi-banner"><img src="assets/img/top/header_banner.png" alt=""></a>
+    </div>
+  </main>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+  <script>
+    $(function(){
+      $('.catch-slide').slick({
+        arrows:false,
+        autoplay:true,
+        autoplaySpeed:4000,
+        speed:1500
+      });
+      $(window).on("scroll", function(){
+        if($(this).scrollTop() > 400){
+          $('.banner').addClass('is-fade');
+        }else{
+          $('.banner').removeClass('is-fade');
+        }
+      });
+    });
+  </script>
+
+</body></html>
