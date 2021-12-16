@@ -1,0 +1,67 @@
+@charset "UTF-8";
+.code-frame.sass > .prettyprint.linenums.prettyprinted::before{
+	content: "sass" !important;
+	font-size: 17px !important;
+}
+.code-frame.php > .prettyprint.linenums.prettyprinted::before{
+	content: "PHP" !important;
+	font-size: 17px !important;
+}
+.rei-title{
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.rei-title span{
+	font-size: 18px;
+	font-weight: normal;
+}
+
+#question-php .prettyprint:before{
+	content: none !important;
+}
+#question-php pre.prettyprint{
+	background-color: #fff;
+	border: 1px solid #ccc;
+}
+#question-php .prettyprint ol.linenums > li{
+	border-left: none;
+}
+#question-php pre .lit{
+	color: #333;
+	font-size: 20px;
+}
+
+.b-frame{
+	padding: 20px;
+	border: 1px solid #ccc;
+}
+
+.tw-btn{
+	position: absolute;
+  top: 13%;
+  background: #55acee;
+  color: #fff;
+  right: 0;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-family: auto;
+}
+
+.tw-btn a{
+	display: block;
+	color: #fff;
+	cursor: pointer;
+	font-size: 16px;
+}
+.tw-btn a:hover{
+	opacity: 0.7;
+}
+
+@media screen and (max-width: 768px){
+	.tw-btn{
+		position: static;
+		margin-top: 30px;
+	}
+}
